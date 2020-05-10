@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		476B7856246825BD0079E29D /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B7855246825BD0079E29D /* VisualEffectView.swift */; };
 		F8034165212625DD00EAD717 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034164212625DD00EAD717 /* AppDelegate.swift */; };
 		F8034167212625DD00EAD717 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034166212625DD00EAD717 /* ExamplesViewController.swift */; };
 		F803416A212625DD00EAD717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8034168212625DD00EAD717 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		476B7855246825BD0079E29D /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		F8034161212625DD00EAD717 /* FittedSheets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FittedSheets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8034164212625DD00EAD717 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8034166212625DD00EAD717 /* ExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				F84FF4B02135BE1A00248951 /* UIViewControllerExtension.swift */,
 				F857D0932204B71F004C862F /* FittedSheetsPod.h */,
 				F857D0942204B71F004C862F /* Info.plist */,
+				476B7855246825BD0079E29D /* VisualEffectView.swift */,
 			);
 			path = FittedSheetsPod;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				F857D0A02204B776004C862F /* InitialTouchPanGestureRecognizer.swift in Sources */,
 				F857D09F2204B776004C862F /* Yalta.swift in Sources */,
 				F857D0A22204B776004C862F /* SheetSize.swift in Sources */,
+				476B7856246825BD0079E29D /* VisualEffectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

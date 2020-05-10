@@ -16,12 +16,12 @@ open class SheetViewController: UIViewController {
     /// The view that can be pulled to resize a sheeet. This includes the background. To change the color of the bar, use `handleView` instead
     public let pullBarView = UIView()
     public let handleView = UIView()
-    public var handleColor: UIColor = UIColor(white: 0.868, alpha: 1) {
+    public var handleColor: UIColor = UIColor(white: 1.0, alpha: 0.5) {
         didSet {
             self.handleView.backgroundColor = self.handleColor
         }
     }
-    public var handleSize: CGSize = CGSize(width: 50, height: 6)
+    public var handleSize: CGSize = CGSize(width: 30, height: 4)
     public var handleTopEdgeInset: CGFloat = 9
     public var handleBottomEdgeInset: CGFloat = 9
     
@@ -37,7 +37,7 @@ open class SheetViewController: UIViewController {
     /// If true, sheet's dismiss view will be generated, otherwise sheet remains fixed and will need to be dismissed programatically
     public var dismissable: Bool = true
     
-    public var extendBackgroundBehindHandle: Bool = false {
+    public var extendBackgroundBehindHandle: Bool = true {
         didSet {
             guard isViewLoaded else { return }
             self.pullBarView.backgroundColor = extendBackgroundBehindHandle ? childViewController.view.backgroundColor : UIColor.clear
@@ -54,7 +54,7 @@ open class SheetViewController: UIViewController {
     public var blurBottomSafeArea: Bool = true
     
     /// Adjust corner radius for the top corners. Only available for iOS 11 and above
-    public var topCornersRadius: CGFloat = 3 {
+    public var topCornersRadius: CGFloat = 20 {
         didSet {
             guard isViewLoaded else { return }
             self.updateRoundedCorners()
@@ -62,7 +62,7 @@ open class SheetViewController: UIViewController {
     }
     
     /// The color of the overlay above the sheet. Default is a transparent black.
-    public var overlayColor: UIColor = UIColor(white: 0, alpha: 0.7) {
+    public var overlayColor: UIColor = UIColor(white: 0, alpha: 0.5) {
         didSet {
             if self.isViewLoaded && self.view?.window != nil {
                 self.view.backgroundColor = self.overlayColor
@@ -217,8 +217,26 @@ open class SheetViewController: UIViewController {
             subview.top.align(with: self.containerView.al.bottom)
             subview.base.backgroundColor = UIColor.white
         }
+      
+        setUpBlurBGView()
     }
     
+    private func setUpBlurBGView() {
+      let gradientLayer = CAGradientLayer()
+      gradientLayer.frame = self.view.bounds
+      gradientLayer.colors = [UIColor(hex: "#2c86ff4D").cgColor, UIColor(hex: "#20bdff4D").cgColor, UIColor(hex: "#a5fecb4D").cgColor]
+      self.containerView.layer.addSublayer(gradientLayer)
+      
+      
+      let visualEffectView = VisualEffectView(frame: view.bounds)
+      // Configure the view with tint color, blur radius, etc
+      visualEffectView.colorTint = UIColor.clear
+      visualEffectView.blurRadius = 10
+      visualEffectView.scale = 1
+
+      self.containerView.addSubview(visualEffectView)
+    }
+  
     private func setUpChildViewController() {
         self.childViewController.willMove(toParent: self)
         self.addChild(self.childViewController)

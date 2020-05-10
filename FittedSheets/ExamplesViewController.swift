@@ -27,6 +27,7 @@ class ExamplesViewController: UIViewController {
         super.viewDidLoad()
         
         addExample("Color Tests", controller: { ColorExampleViewController.instantiate() })
+        addExample("Keyboard Tests", controller: { UITextFieldExampleViewController.instantiate() })
         addExample("Scroll View", controller: { ScrollViewExampleViewController.instantiate() })
         addExample("Table View", controller: { TableViewExampleViewController.instantiate() })
         addExample("Table View Controller", controller: { ExampleTableViewController.instantiate() })
@@ -64,8 +65,8 @@ class ExamplesViewController: UIViewController {
             sheetController.adjustForBottomSafeArea = self.adjustForBottomSafeAreaSwitch.isOn
             sheetController.blurBottomSafeArea = self.blurBottomSafeAreaSwitch.isOn
             sheetController.dismissOnBackgroundTap = self.dismissOnBackgroundTapSwitch.isOn
-            sheetController.extendBackgroundBehindHandle = self.extendBackgroundBehindHandleSwitch.isOn
-            sheetController.topCornersRadius = self.roundedCornersSwitch.isOn ? 15 : 0
+            //sheetController.extendBackgroundBehindHandle = self.extendBackgroundBehindHandleSwitch.isOn
+            //sheetController.topCornersRadius = self.roundedCornersSwitch.isOn ? 15 : 0
             
             sheetController.willDismiss = { _ in
                 print("Will dismiss \(name)")
