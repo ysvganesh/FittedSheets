@@ -51,7 +51,7 @@ open class SheetViewController: UIViewController {
     public var adjustForBottomSafeArea: Bool = false
     
     /// If true, the bottom safe area will have a blur effect over it. This must be set before the sheet view controller loads for it to function properly
-    public var blurBottomSafeArea: Bool = true
+    public var blurBottomSafeArea: Bool = false
     
     /// Adjust corner radius for the top corners. Only available for iOS 11 and above
     public var topCornersRadius: CGFloat = 20 {
@@ -475,7 +475,7 @@ open class SheetViewController: UIViewController {
         guard let size = size else { return 0 }
         switch (size) {
             case .fixed(let height):
-                return height
+              return height + self.safeAreaInsets.bottom
             case .fullScreen:
                 let insets = self.safeAreaInsets
                 return UIScreen.main.bounds.height - insets.top - 20
