@@ -14,6 +14,8 @@ class UITextFieldExampleViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+      
+      self.view.backgroundColor = .blue
     }
     
     @IBAction func doneTapped(_ sender: Any) {

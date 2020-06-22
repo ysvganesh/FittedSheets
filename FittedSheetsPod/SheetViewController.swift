@@ -258,7 +258,7 @@ open class SheetViewController: UIViewController {
         if self.adjustForBottomSafeArea, bottomInset > 0 {
             // Add white background over bottom bar
             self.containerView.addSubview(UIView(frame: CGRect.zero)) { subview in
-                subview.base.backgroundColor = UIColor.white
+              subview.base.backgroundColor = self.childViewController.view.backgroundColor
                 subview.edges(.bottom, .left, .right).pinToSuperview()
                 subview.height.set(bottomInset)
             }
