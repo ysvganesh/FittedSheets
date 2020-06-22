@@ -48,7 +48,7 @@ open class SheetViewController: UIViewController {
     private var firstPanPoint: CGPoint = CGPoint.zero
     
     /// If true, the child view controller will be inset to account for the bottom safe area. This must be set before the sheet view controller loads for it to function properly
-    public var adjustForBottomSafeArea: Bool = false
+    public var adjustForBottomSafeArea: Bool = true
     
     /// If true, the bottom safe area will have a blur effect over it. This must be set before the sheet view controller loads for it to function properly
     public var blurBottomSafeArea: Bool = false
