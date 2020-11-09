@@ -51,7 +51,7 @@ class ExamplesViewController: UIViewController {
                 sizes.append(.fullScreen)
             }
             if self.halfScreenSwitch.isOn {
-                sizes.append(.halfScreen)
+              sizes.append(.percent(0.5))
             }
             
             if self.navigationControllerSwitch.isOn {
@@ -98,7 +98,7 @@ class ExamplesViewController: UIViewController {
     
     @IBAction func presentSheet2(_ sender: Any) {
         
-        let controller = SheetViewController(controller: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sheet2"), sizes: [.halfScreen, .fullScreen, .fixed(250)])
+      let controller = SheetViewController(controller: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sheet2"), sizes: [.percent(0.5), .fullScreen, .fixed(250)])
         
         self.present(controller, animated: false, completion: nil)
     }

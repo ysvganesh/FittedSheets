@@ -10,6 +10,6 @@ import UIKit
 
 public enum SheetSize {
     case fixed(CGFloat)
-    case halfScreen
     case fullScreen
+    case percent(Float)
 }

@@ -478,9 +478,9 @@ open class SheetViewController: UIViewController {
               return height + self.safeAreaInsets.bottom
             case .fullScreen:
                 let insets = self.safeAreaInsets
-                return UIScreen.main.bounds.height - insets.top - 20
-            case .halfScreen:
-                return (UIScreen.main.bounds.height) / 2 + 24
+                return self.view.bounds.height //- insets.top - 20
+            case .percent(let percent):
+                return (self.view.bounds.height) * CGFloat(percent) //+ self.keyboardHeight
         }
     }
 }
