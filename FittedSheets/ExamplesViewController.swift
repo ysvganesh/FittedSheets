@@ -60,8 +60,8 @@ class ExamplesViewController: UIViewController {
                 }
                 controller = UINavigationController(rootViewController: controller)
             }
-            
-            let sheetController = SheetViewController(controller: controller, sizes: sizes)
+          
+            let sheetController = SheetViewController(controller: controller, sizes: sizes, enableBackgroundGradientBlur: false)
             sheetController.adjustForBottomSafeArea = self.adjustForBottomSafeAreaSwitch.isOn
             sheetController.blurBottomSafeArea = self.blurBottomSafeAreaSwitch.isOn
             sheetController.dismissOnBackgroundTap = self.dismissOnBackgroundTapSwitch.isOn

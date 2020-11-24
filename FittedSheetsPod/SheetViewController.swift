@@ -81,6 +81,9 @@ open class SheetViewController: UIViewController {
     /// The array of sizes we are trying to pin to when resizing the sheet. To set, use `setSizes` function
     private var orderedSheetSizes: [SheetSize] = [.fixed(300), .fullScreen]
     
+    /// If true, the background  will have a gradient blur effect over it. This must be set before the sheet view controller loads for it to function properly
+    private var enableBackgroundGradientBlur: Bool = true
+  
     private var panGestureRecognizer: InitialTouchPanGestureRecognizer!
     /// The child view controller's scroll view we are watching so we can override the pull down/up to work on the sheet when needed
     private weak var childScrollView: UIScrollView?
@@ -109,12 +112,14 @@ open class SheetViewController: UIViewController {
     }
     
     /// Initialize the sheet view controller with a child. This is the only initializer that will function properly.
-    public convenience init(controller: UIViewController, sizes: [SheetSize] = []) {
+    public convenience init(controller: UIViewController, sizes: [SheetSize] = [], enableBackgroundGradientBlur: Bool = true) {
         self.init(nibName: nil, bundle: nil)
         self.childViewController = controller
         if sizes.count > 0 {
             self.setSizes(sizes, animated: false)
         }
+        
+        self.enableBackgroundGradientBlur = enableBackgroundGradientBlur
         self.modalPresentationStyle = .overFullScreen
     }
     
@@ -218,7 +223,11 @@ open class SheetViewController: UIViewController {
             subview.base.backgroundColor = UIColor.white
         }
       
-        setUpBlurBGView()
+        if enableBackgroundGradientBlur {
+          self.childViewController.view.backgroundColor = .clear
+          setUpBlurBGView()
+        }
+        
     }
     
     private func setUpBlurBGView() {
