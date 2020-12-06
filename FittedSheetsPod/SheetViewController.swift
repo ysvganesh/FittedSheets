@@ -115,11 +115,12 @@ open class SheetViewController: UIViewController {
     public convenience init(controller: UIViewController, sizes: [SheetSize] = [], enableBackgroundGradientBlur: Bool = true) {
         self.init(nibName: nil, bundle: nil)
         self.childViewController = controller
+        self.enableBackgroundGradientBlur = enableBackgroundGradientBlur
+      
         if sizes.count > 0 {
             self.setSizes(sizes, animated: false)
         }
         
-        self.enableBackgroundGradientBlur = enableBackgroundGradientBlur
         self.modalPresentationStyle = .overFullScreen
     }
     
